@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useWorkoutContext } from "../hooks/useWorkoutContext"
+// import { useWorkoutContext } from "../hooks/useWorkoutContext"
 
 const WorkoutForm = () => {
-  const [workouts,dispatch] = useWorkoutContext()
+  // const [workouts,dispatch] = useWorkoutContext()
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -26,7 +26,7 @@ const WorkoutForm = () => {
       setError(json.error);
     }
     if (response.ok) {
-      dispatch({type: 'CREATE_WORKOUT ', payload:json})
+      // dispatch({type: 'CREATE_WORKOUT ', payload:json})
       setError(null);
       setTitle("");
       setLoad("");
@@ -36,33 +36,33 @@ const WorkoutForm = () => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a New Workout</h3>
+    <form className="create" onSubmit={handleSubmit}> 
+    <h3>Add a New Workout</h3>
 
-      <label>Excersize Title:</label>
-      <input
-        type="text"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-      />
+    <label>Excersize Title:</label>
+    <input 
+      type="text" 
+      onChange={(e) => setTitle(e.target.value)} 
+      value={title}
+    />
 
-      <label>Load (in kg):</label>
-      <input
-        type="number"
-        onChange={(e) => setLoad(e.target.value)}
-        value={load}
-      />
+    <label>Load (in kg):</label>
+    <input 
+      type="number" 
+      onChange={(e) => setLoad(e.target.value)} 
+      value={load}
+    />
 
-      <label>Number of Reps:</label>
-      <input
-        type="number"
-        onChange={(e) => setReps(e.target.value)}
-        value={reps}
-      />
+    <label>Number of Reps:</label>
+    <input 
+      type="number" 
+      onChange={(e) => setReps(e.target.value)} 
+      value={reps} 
+    />
 
-      <button>Add Workout</button>
-      {error && <div className="error">{error}</div>}
-    </form>
+    <button>Add Workout</button>
+    {error && <div className="error">{error}</div>}
+  </form>
   );
 };
 

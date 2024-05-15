@@ -5,6 +5,7 @@ const getAllWorkouts = async (req, res) => {
   const allWorkouts = await Workout.find({}).sort({ createdAt: -1 });
   res.status(200).json(allWorkouts);
 };
+
 //get specific workout
 const getSingleWorkout = async (req, res) => {
   const { id } = req.params;
@@ -56,11 +57,14 @@ const createWorkout = async (req, res) => {
   try {
     workout = await Workout.create({ title, reps, load });
     res.status(200).json(workout);
+    res.end();
   } catch (error) {
-    res.status(400).json({ error: error.message }); 
+    res.status(400).json({ error: error.message });
+    res.end()
   }
-};
 
+  // res.json({ mssg: "POST a new workout" });
+};
 
 module.exports = {
   createWorkout,
