@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { WorkoutContext } from "../context/WorkoutContext";
 
 import { formatDistanceToNow, FormatDistanceToNow } from 'date-fns/formatDistanceToNow';
-import { styleText } from '../../node_modules/@types/node/util.d';
 
 const WorkoutDetails = ({workout}) => {
   const { workouts, setWorkouts } = useContext(WorkoutContext);
