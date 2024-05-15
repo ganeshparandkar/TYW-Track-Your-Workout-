@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext } from "react";
 import { WorkoutContext } from "../context/WorkoutContext";
 
-import { formatDistanceToNow, FormatDistanceToNow } from 'date-fns/formatDistanceToNow';
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
 
 const WorkoutDetails = ({workout}) => {
   const { workouts, setWorkouts } = useContext(WorkoutContext);
@@ -35,6 +35,7 @@ const WorkoutDetails = ({workout}) => {
         <strong>Time : </strong>
         {formatDistanceToNow(new Date(workout.createdAt),{addSuffix:true}) }
       </p>
+      <div className="buttonSection"></div>
       <span onClick={handleDelete} class="material-symbols-outlined">Delete</span>
     </div>
   );
