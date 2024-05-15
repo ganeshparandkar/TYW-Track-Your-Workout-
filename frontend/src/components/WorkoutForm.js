@@ -30,7 +30,7 @@ const WorkoutForm = () => {
     if (response.ok) {
       // console.log('testing = ',{...workouts,json})
       // dispatch({type: 'CREATE_WORKOUT ', payload:json})
-      setWorkouts([...workouts,json])
+      setWorkouts([json,...workouts])
       setError(null);
       setTitle("");
       setLoad("");

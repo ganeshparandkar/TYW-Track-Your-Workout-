@@ -9,7 +9,7 @@ const Home = () => {
   // const [workouts, setWorkouts] = useState(null)
 
   const { workouts, setWorkouts } = useContext(WorkoutContext);
-
+  
   console.log("workouts", workouts, typeof workouts);
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -29,7 +29,7 @@ const Home = () => {
 
     fetchWorkouts();
   }, [setWorkouts]);
-  
+
 
   return (
     <div className="home">
